@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
+import 'package:ticketbooking/screens/hotels_screen.dart';
 import 'package:ticketbooking/screens/ticket_view.dart';
+import 'package:ticketbooking/utils/app_info_list.dart';
 import 'package:ticketbooking/utils/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,7 +19,6 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
@@ -93,8 +94,47 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const Gap(15),
-          TicketView(),
-           
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: [
+                TicketView(),
+                TicketView(),
+              ],
+            ),
+          ),
+          const Gap(15),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Hotels",
+                  style: Styles.headLineStyle2,
+                ),
+                InkWell(
+                    onTap: () {
+                      print("Tapped");
+                    },
+                    child: Text(
+                      "View all",
+                      style:
+                          Styles.textStyle.copyWith(color: Styles.primaryColor),
+                    ))
+              ],
+            ),
+          ),
+          const Gap(15),
+          SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: hotelList.map((singlehotel) => HotelScreen(
+                      hotel: singlehotel
+                    )).toList(),
+              ))
         ],
       ),
     );
