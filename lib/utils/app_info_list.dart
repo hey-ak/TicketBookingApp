@@ -21,12 +21,12 @@ List<Map<String, dynamic>> hotelList = [
 List<Map<String, dynamic>> ticketList = [
   {
     'from': {
-      'code':"NYC",
-      'name':"New-York"
+      'code':"PB",
+      'name':"Punjab",
     },
     'to': {
-      'code':"LDN",
-      'name':"London"
+      'code':"DL",
+      'name':"Delhi",
     },
     'flying_time': '8H 30M',
     'date': "1 MAY",
@@ -35,12 +35,12 @@ List<Map<String, dynamic>> ticketList = [
   },
   {
     'from': {
-      'code':"DK",
-      'name':"Dhaka"
+      'code':"MB",
+      'name':"Mumbai",
     },
     'to': {
-      'code':"SH",
-      'name':"Shanghai"
+      'code':"BH",
+      'name':"Bihar",
     },
     'flying_time': '4H 20M',
     'date': "10 MAY",
