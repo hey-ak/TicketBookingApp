@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:ticketbooking/screens/home_screen.dart';
+import 'package:ticketbooking/screens/search.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({super.key});
@@ -15,7 +16,7 @@ class _BottomBarState extends State<BottomBar> {
   int selected_index = 0;
   static final List<Widget> _widgetoptions = <Widget>[
     HomeScreen(),
-    const Text("Search"),
+    SearchScreen(),
     const Text("Ticket"),
     const Text("Profile"),
   ];
