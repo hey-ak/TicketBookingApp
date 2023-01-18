@@ -31,12 +31,12 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Good Morning",
+                          "Elite Booking",
                           style: Styles.headLineStyle3,
                         ),
                         const Gap(5),
                         Text(
-                          "Book Tickets",
+                          "Flight & Hotels",
                           style: Styles.headLineStyle,
                         ),
                         const Gap(25),
@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                           image: const DecorationImage(
                               fit: BoxFit.fitHeight,
-                              image: AssetImage("assets/images/p1.jpg"))),
+                              image: AssetImage("assets/images/p1.png"))),
                     )
                   ],
                 ),
