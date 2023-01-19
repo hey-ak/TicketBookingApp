@@ -20,7 +20,7 @@ class _BottomBarState extends State<BottomBar> {
     HomeScreen(),
     SearchScreen(),
     const TicketScreen(),
-    const ProfileScreen(),
+    // const ProfileScreen(),
   ];
   void _onItemTapped(int index) {
     setState(() {
