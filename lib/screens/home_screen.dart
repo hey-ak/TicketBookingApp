@@ -10,6 +10,37 @@ import 'package:ticketbooking/utils/app_info_list.dart';
 import 'package:ticketbooking/utils/app_styles.dart';
 import 'package:ticketbooking/widgets/double_text_widget.dart';
 
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:ticketbooking/models/Flight.dart';
+
+Future<List<Flight>> getRequest() async {
+  //replace your restFull API here.
+  String url = "";
+  final response = await http.get(Uri.parse(url));
+
+  var responseData = json.decode(response.body);
+
+  //Creating a list to store input data;
+  List<Flight> flights = [];
+  for (var singleFlight in responseData) {
+    // {"_id":"63c7c89091bffc1e7aab66c4","flightNumber":"DL123","airline":"Delta","departure":{"airport":"JFK","time":"2022-05-15T14:00:00.000Z"},"arrival":{"airport":"SFO","time":"2022-05-15T17:00:00.000Z"},"duration":180,"price":350,"capacity":200,"availableSeats":150,"status":"On
+// Time"}
+    Flight flight = Flight(
+        id: singleFlight["_id"],
+        flightNumber: singleFlight["flightnumber"],
+        departure_time: singleFlight["departure"]["time"],
+        departure_place: singleFlight["departure"]["airport"],
+        arrival_place: singleFlight["arrival"]["airport"],
+        arrival_time: singleFlight["departure"]["time"],
+        flight_duration: singleFlight["duration"]);
+
+    //Adding user to the list.
+    flights.add(flight);
+  }
+  return flights;
+}
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -73,8 +104,8 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const Gap(40),
-               AppDoubleTextWidget(bigText: "Upcoming Flights", smallText: "View All"),
-                
+                AppDoubleTextWidget(
+                    bigText: "Upcoming Flights", smallText: "View All"),
               ],
             ),
           ),
@@ -83,24 +114,25 @@ class HomeScreen extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 20),
             child: Row(
-              children: 
-               ticketList.map((singleTicket) => TicketView(ticket: singleTicket)).toList(),
-              
+              children: ticketList
+                  .map((singleTicket) => TicketView(ticket: singleTicket))
+                  .toList(),
             ),
           ),
           const Gap(15),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: AppDoubleTextWidget(bigText: "Hotels", smallText: "View All"),
+            child:
+                AppDoubleTextWidget(bigText: "Hotels", smallText: "View All"),
           ),
           const Gap(15),
           SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.only(left: 20),
               child: Row(
-                children: hotelList.map((singlehotel) => HotelScreen(
-                      hotel: singlehotel
-                    )).toList(),
+                children: hotelList
+                    .map((singlehotel) => HotelScreen(hotel: singlehotel))
+                    .toList(),
               ))
         ],
       ),

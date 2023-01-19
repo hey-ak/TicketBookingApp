@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticketbooking/utils/app_styles.dart';
 import './screens/bottom_bar.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -16,11 +15,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        
         primaryColor: primary,
       ),
       home: const BottomBar(),
     );
   }
 }
-
