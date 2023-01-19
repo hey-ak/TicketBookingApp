@@ -20,7 +20,7 @@ class _BottomBarState extends State<BottomBar> {
     HomeScreen(),
     SearchScreen(),
     const TicketScreen(),
-    // const ProfileScreen(),
+
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -31,13 +31,11 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      
       body: Center(
         child: _widgetoptions[selected_index],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selected_index,
+          currentIndex: selected_index,
           onTap: _onItemTapped,
           elevation: 10,
           showSelectedLabels: false,

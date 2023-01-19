@@ -3,7 +3,6 @@ import 'package:ticketbooking/screens/Login/login_screen.dart';
 import 'package:ticketbooking/screens/Welcome/welcome_screen.dart';
 import 'package:ticketbooking/utils/app_styles.dart';
 import './screens/bottom_bar.dart';
-
 void main() {
   runApp(const MyApp());
 }
