@@ -5,6 +5,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 import 'package:ticketbooking/screens/hotels_screen.dart';
+import 'package:ticketbooking/screens/search.dart';
+import 'package:ticketbooking/screens/ticket_scrren.dart';
 import 'package:ticketbooking/screens/ticket_view.dart';
 import 'package:ticketbooking/utils/app_info_list.dart';
 import 'package:ticketbooking/utils/app_styles.dart';
@@ -41,8 +43,16 @@ Future<List<Flight>> getRequest() async {
   return flights;
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return HomeScreenState();
+    
+  }
+}
+
+class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -96,9 +106,16 @@ class HomeScreen extends StatelessWidget {
                         FluentSystemIcons.ic_fluent_search_regular,
                         color: Color(0xFFBFC205),
                       ),
-                      Text(
-                        "Search",
-                        style: Styles.headLineStyle4,
+                      ElevatedButton(
+                        child: Text(
+                          "Search",
+                          style: Styles.headLineStyle4,
+                        
+                          
+                          
+                        ),
+                        onPressed:(() =>  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const SearchScreen()))),
+                        
                       )
                     ],
                   ),
